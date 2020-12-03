@@ -48,12 +48,13 @@
 #  TRADEMARK AND COPYRIGHT INFRINGEMENT AND/OR FREEDOM FROM THEFT OF TRADE
 #  SECRETS.”
 # 
+CFLAGS=-c
 all: signconv_e01
 signconv: all
 .PHONY : all
 
 signconv_e01:	signconv_e01.c ../../include/scvs_include.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 clean:
 	@-rm -f *.o*

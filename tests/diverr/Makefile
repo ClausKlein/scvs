@@ -48,21 +48,22 @@
 #  TRADEMARK AND COPYRIGHT INFRINGEMENT AND/OR FREEDOM FROM THEFT OF TRADE
 #  SECRETS.”
 # 
-all: diverr_e01 diverr_e02
+CFLAGS=-c
+all: diverr_e01 diverr_e02 diverr_e03 diverr_e04
 diverr: all
 .PHONY : all
 
 diverr_e01:	diverr_e01.c ../../include/scvs_include.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 diverr_e02:	diverr_e02.c ../../include/scvs_include.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 diverr_e03:	diverr_e03.c ../../include/scvs_include.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 diverr_e04:	diverr_e04.c ../../include/scvs_include.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 clean:
 	@-rm -f *.o*
 	@-rm -f *.log

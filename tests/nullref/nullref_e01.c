@@ -82,7 +82,7 @@ size_t localcopy(const char *in1) {
   char *c_str = (char *)malloc(size);
 
   if ((memcpy(c_str, in1, size)) == c_str) {  // diagnostic required
-    r = size;  
+    r = size;
   } else {
     r = 0;
   }

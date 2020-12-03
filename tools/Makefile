@@ -11,12 +11,12 @@ clean:
 
 install: reporter copy
 
-reporter: reporter.c 
+reporter: reporter.c
 	$(CC) $(CFLAGS) -I ../include $^ -o $@
 
 copy:
-	@cp reporter ../tests
-	@cp test_driver.sh ../tests
+	@cp -p reporter ../tests
+	@cp -p test_driver.sh ../tests
 	@cp default_cmds ../tests
 	@cp cov_cmds ../tests
 	@cp gcc_cmds ../tests
@@ -24,9 +24,9 @@ copy:
 
 testlist:
 	@cp make_struct.awk ../tests
-	@cp check_list.awk ../tests
-	@cp make_testlist.sh ../tests
+	@cp -p check_list.awk ../tests
+	@cp -p make_testlist.sh ../tests
 	(cd ../tests; $(MAKE) testlist)
 	@rm -f ../tests/make_struct.awk
 	@rm -f ../tests/check_list.awk
-	@rm -f ../tests/make_testlist.sh 
+	@rm -f ../tests/make_testlist.sh

@@ -48,6 +48,7 @@
 #  TRADEMARK AND COPYRIGHT INFRINGEMENT AND/OR FREEDOM FROM THEFT OF TRADE
 #  SECRETS.”
 # 
+CFLAGS=-c
 all: resident_e01 resident_e02 resident_e03 resident_e04 resident_e05 resident_e06 resident_e07 resident_e08 resident_e09
 resident: all
 .PHONY : all
@@ -74,7 +75,7 @@ resident_e07:	resident_e07.c
 	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
 
 resident_e08:	resident_e08.c resident_e08.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 resident_e09:	resident_e09.c
 	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o

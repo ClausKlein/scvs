@@ -48,6 +48,7 @@
 #  TRADEMARK AND COPYRIGHT INFRINGEMENT AND/OR FREEDOM FROM THEFT OF TRADE
 #  SECRETS.”
 # 
+CFLAGS=-c
 all: usrfmt_e01 usrfmt_e02 usrfmt_e03 usrfmt_e04
 usrfmt: all
 .PHONY : all
@@ -59,7 +60,7 @@ usrfmt_e02:	usrfmt_e02.c
 	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
 
 usrfmt_e03:	usrfmt_e03.c ../../include/scvs_include.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) -c $^ # -o $@.o
 
 usrfmt_e04:	usrfmt_e04.c
 	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o

@@ -48,6 +48,7 @@
 #  TRADEMARK AND COPYRIGHT INFRINGEMENT AND/OR FREEDOM FROM THEFT OF TRADE
 #  SECRETS.”
 # 
+CFLAGS=-c
 all: taintformatio_e01 taintformatio_e02 
 taintformatio: all
 .PHONY : all
@@ -56,7 +57,7 @@ taintformatio_e01:	taintformatio_e01.c
 	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
 
 taintformatio_e02:	taintformatio_e02.c ../../include/scvs_include.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 clean:
 	@-rm -f *.o*

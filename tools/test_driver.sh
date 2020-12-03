@@ -110,6 +110,7 @@ while test $# -gt 0 ; do
    shift
   ;;
   -d | --debug)
+   VERBOSE=-v
    DEBUG=-d
    shift
   ;;
@@ -163,19 +164,19 @@ dir_cnt=0
 lin_cnt=0
 
 # make files need the include
-if [ -z $INCLUDE ]
+if [ -z "$INCLUDE" ]
 then
   export INCLUDE="-I./ -I../../../include/"
 fi
 
 # use gcc as a default for the make file
-if [ -z $CC ]
+if [ -z "$CC" ]
 then
-  export CC="gcc -std=c99"
+  export CC="gcc -std=c11 -Wall -Wextra -Wpedantic"
 fi
 
 # set a default for the TAINT environment variable
-if [ -z $TAINT ]
+if [ -z "$TAINT" ]
 then
   export TAINT=555
 fi
@@ -186,7 +187,7 @@ echo >> test.log
 
 PATH=$PWD:$PATH
 
-if [ /$CMD/ = /default_cmd/ ]
+if [ /$CMD/ = /default_cmds/ ]
 then
   if [ -x $CMD ]
   then

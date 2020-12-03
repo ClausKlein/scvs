@@ -51,293 +51,27 @@
 CONFIGFILES= configuration.* test.log
 
 ifeq ("$(INCLUDE)", "")
- INCLUDE="-I$(SCVS_BASE)/include -I./"
+ export INCLUDE=-I$(CURDIR)/../include -I./
 endif
 
-ifeq ("$(CC)", "")
- CC=gcc
-endif
+# ifeq ("$(CC)", "")
+ export CC=clang -std=c11 -Weverything
+# endif
 
 ifeq ("$(CFLAGS)", "")
- CFLAGS="-std=c99"
+ export CFLAGS=-c
 endif
 
 vpath = %.h $(INCLUDE)
 
-all: ptrcomp funcaddr padcomp intptrconv alignconv filecpy funcdecl nullref diverr addrescape signconv accfree swtchdflt fileclose liberr libptr invptr dblfree usrfmt inverrno ioileave strmod accsig libmod intoflow chrsgnext restrict xfree uninitref ptrobj taintstrcpy sizeofptr taintnoproto taintformatio xfilepos libuse chreof resident invfmtstr taintsink boolasgn asyncsig argcomp sigcall syscall
+MFLAGS+=-B
+.PHONY: all clobber clean testlist
 
-.PHONY: all
+all:: ./ptrcomp ./padcomp ./intptrconv ./alignconv ./filecpy ./funcdecl ./nullref ./diverr ./addrescape ./signconv ./accfree ./swtchdflt ./fileclose ./liberr ./libptr ./invptr ./dblfree ./usrfmt ./inverrno ./ioileave ./strmod ./accsig ./libmod ./intoflow ./chrsgnext ./restrict ./xfree ./uninitref ./ptrobj ./taintstrcpy ./sizeofptr ./taintnoproto ./taintformatio ./xfilepos ./libuse ./chreof ./resident ./invfmtstr ./taintsink ./boolasgn ./asyncsig ./argcomp ./sigcall ./syscall ./nonnullstr
 
-ptrcomp: always
-	(cd ./ptrcomp; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
 
-accfree: always
-	(cd ./accfree; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-accsig: always
-	(cd ./accsig; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-boolasgn: always
-	(cd ./boolasgn; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-asyncsig: always
-	(cd ./asyncsig; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-argcomp: always
-	(cd ./argcomp; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-sigcall: always
-	(cd ./sigcall; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-syscall: always
-	(cd ./syscall; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-padcomp: always
-	(cd ./padcomp; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-intptrconv: always
-	(cd ./intptrconv; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-alignconv: always
-	(cd ./alignconv; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-filecpy: always
-	(cd ./filecpy; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-funcdecl: always
-	(cd ./funcdecl; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-nullref: always
-	(cd ./nullref; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-addrescape: always
-	(cd ./addrescape; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-signconv: always
-	(cd ./signconv; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
- 
-swtchdflt: always
-	(cd ./swtchdflt; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-fileclose: always
-	(cd ./fileclose; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-liberr: always
-	(cd ./liberr; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-libptr: always
-	(cd ./libptr; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-invptr: always
-	(cd ./invptr; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-dblfree: always
-	(cd ./dblfree; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-usrfmt: always
-	(cd ./usrfmt; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-inverrno: always
-	(cd ./inverrno; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-diverr: always
-	(cd ./diverr; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-ioileave: always
-	(cd ./ioileave; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-strmod: always
-	(cd ./strmod; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-libmod: always
-	(cd ./libmod; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-intoflow: always
-	(cd ./intoflow; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-nonnullstr: always
-	(cd ./nonnullstr; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-chrsgnext: always
-	(cd ./chrsgnext; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-restrict: always
-	(cd ./restrict; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-xfree: always
-	(cd ./xfree; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-uninitref: always
-	(cd ./uninitref; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-ptrobj: always
-	(cd ./ptrobj; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-taintstrcpy: always
-	(cd ./taintstrcpy; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-sizeofptr: always
-	(cd ./sizeofptr; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-taintnoproto: always
-	(cd ./taintnoproto; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-taintformatio: always
-	(cd ./taintformatio; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-xfilepos: always
-	(cd ./xfilepos; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-libuse: always
-	(cd ./libuse; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-chreof: always
-	(cd ./chreof; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-resident: always
-	(echo Making resident;\
-	cd ./resident; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-invfmtstr: always
-	(cd ./invfmtstr; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
-
-taintsink: always
-	(cd ./taintsink; $(MAKE) $(MFLAGS) \
-	CC="$(CC)" \
-	CFLAGS="$(CFLAGS)" \
-	INCLUDE="$(INCLUDE)" all)
+%: always
+	$(MAKE) $(MFLAGS) -C $@ all\
 
 
 clobber: clean
@@ -393,4 +127,8 @@ clean:
 testlist:
 	@./make_testlist.sh
 
-always:
+# Anything we don't know how to build will use this rule.  The command is
+# a do-nothing command.
+Makefile :: ;
+always :: ;
+all :: ;

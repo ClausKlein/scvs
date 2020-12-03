@@ -48,24 +48,25 @@
 #  TRADEMARK AND COPYRIGHT INFRINGEMENT AND/OR FREEDOM FROM THEFT OF TRADE
 #  SECRETS.”
 # 
+CFLAGS=-c
 all: funcdecl_e01 funcdecl_e02 funcdecl_e03 funcdecl_e04 funcdecl_ex1
 funcdecl: all
 .PHONY : all
 
 funcdecl_e01:	funcdecl_e01a.c funcdecl_e01b.c
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 funcdecl_e02:	funcdecl_e02a.c funcdecl_e02b.c
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 funcdecl_e03:	funcdecl_e03a.c funcdecl_e03b.c
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 funcdecl_e04:	funcdecl_e04a.c funcdecl_e04b.c funcdecl_e04.h
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 funcdecl_ex1:	funcdecl_ex1a.c funcdecl_ex1b.c
-	$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@.o
+	$(CC) $(CFLAGS) $(INCLUDE) $^ # -o $@.o
 
 clean:
 	@-rm -f *.o*

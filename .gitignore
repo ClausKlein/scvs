@@ -1,0 +1,15 @@
+*.log
+*.out
+*.gch
+tests/check_list.awk
+tests/configuration.txt
+tests/cov_cmds
+tests/default_cmds
+tests/gcc_cmds
+tests/kw_cmds
+tests/make_struct.awk
+tests/make_testlist.sh
+tests/reporter
+tests/test_driver.sh
+tools/reporter
+
