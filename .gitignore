@@ -1,6 +1,8 @@
+*.o
 *.log
 *.out
 *.gch
+*-list
 tests/check_list.awk
 tests/configuration.txt
 tests/cov_cmds

@@ -56,6 +56,7 @@ endif
 
 # ifeq ("$(CC)", "")
  export CC=clang -std=c11 -Weverything
+ #XXX export CC=gcc -std=c11 -Wall -Wextra -Wpedantic
 # endif
 
 ifeq ("$(CFLAGS)", "")
@@ -64,7 +65,7 @@ endif
 
 vpath = %.h $(INCLUDE)
 
-MFLAGS+=-B
+MFLAGS+=-B -i
 .PHONY: all clobber clean testlist
 
 all:: ./ptrcomp ./padcomp ./intptrconv ./alignconv ./filecpy ./funcdecl ./nullref ./diverr ./addrescape ./signconv ./accfree ./swtchdflt ./fileclose ./liberr ./libptr ./invptr ./dblfree ./usrfmt ./inverrno ./ioileave ./strmod ./accsig ./libmod ./intoflow ./chrsgnext ./restrict ./xfree ./uninitref ./ptrobj ./taintstrcpy ./sizeofptr ./taintnoproto ./taintformatio ./xfilepos ./libuse ./chreof ./resident ./invfmtstr ./taintsink ./boolasgn ./asyncsig ./argcomp ./sigcall ./syscall ./nonnullstr
